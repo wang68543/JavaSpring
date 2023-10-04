@@ -41,7 +41,7 @@ public class CategoryController {
     public R<String> delete(Long id) {
 
         categoryService.removeById(id);
-        
+
         return R.success("删除成功");
     }
 }
