@@ -61,6 +61,7 @@ CREATE TABLE `category` (
   `update_time` datetime NOT NULL COMMENT '更新时间',
   `create_user` bigint(20) NOT NULL COMMENT '创建人',
   `update_user` bigint(20) NOT NULL COMMENT '修改人',
+  `is_deleted` int(11) NOT NULL DEFAULT '0' COMMENT '是否删除',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `idx_category_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜品及套餐分类';

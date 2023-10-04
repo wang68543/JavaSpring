@@ -40,9 +40,10 @@ public class LoginFilterChecker implements Filter {
         }
         //已登录
         if(request.getSession().getAttribute("employee") != null) {
-            filterChain.doFilter(request,response);
             Long empId = (Long) request.getSession().getAttribute("employee");
+            log.info("获取的信息:{}",empId);
             BaseContext.setCurrentId(empId);
+            filterChain.doFilter(request,response);
             return;
         }
         response.getWriter().write(JSON.toJSONString(R.error("NOT LOGIN")));
